@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    
+    <style>
+      #background-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+   
+      .login-box {
+        height: 300px;
+        width: 270px;
+       
+        background: rgba(0, 0, 0, 0.1);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 1);
+        padding-top: 60px;
+        border-radius: 10px;
+        
+        
+      }
+
+     .login hr {
+     text-align: center;
+     }
+      .container{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      align-items: center;
+        text-align: center;
+      transform: translate(-50%,-50%);
+      }
+
+      .login-box input {
+        width: 200px;
+        background:transparent ;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+        font-size:13px;   
+        box-shadow: 0 0 4px #fff;
+        border-radius: 30px; 
+        color: #fff;
+        margin-top: 20px;
+        transition: box-shadow 0.5s ease;
+      }
+      
+      .login-box input[type="submit"] {
+        background-color: #2e7dcc;
+        color: #f8f7fa;
+        padding: 10px;
+        border: none;   
+        border-radius: 5px;
+        cursor: pointer;
+        
+      }
+    </style>
+  </head>
+  <body><video id="background-video" autoplay loop muted poster="maxresdefault.jpg">
+    <source src="mylivewallpapers.com-Crystal-Cube.mp4" type="video/mp4">
+    </video>
+    <div class="container">
+     <div class="login-box">
+      <span class="glow"></span>
+      <div style="color:#fff ;">LOGIN</div>
+      <br>
+      <form action="login_process.php" method="post">
+        <input type="text" id="username" name="username"placeholder="username" required>
+        <input type="password" id="password" name="password" placeholder="password" required>
+        <input type="submit" value="Login">
+      </form>
+     </div>  
+    </div>
+  </body>
+</html>

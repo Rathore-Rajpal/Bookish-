@@ -1,0 +1,183 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(120deg, #efeeec, #71a3d2);
+    color: #fff;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.player-header {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.player-header img {
+    width: 160px;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.player-header img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.player-header h2 {
+    font-size: 2rem;
+    color: #fff;
+    margin-top: 15px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+/* Audio Player Styles */
+.audio-player {
+    margin-top: 20px;
+}
+
+audio {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    outline: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+audio::-webkit-media-controls-panel {
+    background-color: #3498db;
+    border-radius: 10px;
+}
+
+audio:focus {
+    outline: none;
+}
+
+/* Playback Controls */
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.controls button {
+    padding: 14px 30px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(120deg, #36d1dc, #5b86e5);
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.controls button:hover {
+    background-color: #1c8adb;
+    transform: translateY(-3px);
+}
+
+.controls button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(45deg);
+    transition: all 0.3s ease-in-out;
+    z-index: -1;
+}
+
+.controls button:hover::before {
+    left: 100%;
+}
+
+.controls label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+#speed {
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    border: none;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#speed:hover {
+    background-color: #eee;
+    transform: scale(1.1);
+}
+
+/* Hover Animations */
+button:hover {
+    animation: pulse 0.4s infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 25px;
+    }
+
+    .player-header img {
+        width: 130px;
+        height: 200px;
+    }
+
+    .player-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .controls button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    #speed {
+        padding: 8px;
+        font-size: 1rem;
+    }
+}

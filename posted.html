@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posted Content</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .posted-content {
+            border: 1px solid #ccc;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Your Posted Content</h1>
+    <div class="posted-content" id="postedContent"></div>
+
+    <script>
+        const content = localStorage.getItem('postedContent');
+        document.getElementById('postedContent').innerText = content || "No content posted.";
+    </script>
+</body>
+</html>

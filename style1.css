@@ -1,0 +1,268 @@
+/* Importing Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body {
+    height: 100vh;
+    width: 100%;
+    background: url(wall/jess-bailey-X5gDoysLbBc-unsplash.jpg);
+    background-position: center;
+    background-size: cover;
+}
+ 
+.banner-text{
+    text-align: center;
+    color: #eee7e7;
+    padding-top: 180px;
+}
+
+#banner{
+    background: url(wall/jess-bailey-X5gDoysLbBc-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.banner-text{
+    text-align: center;
+    color: #1b1a1a;
+    padding-top: 180px;
+}
+
+.banner-text h1{
+    font-size: 130px;
+    font-family: Bodoni MT Condensed;
+    padding-top: 100px;
+}
+
+.banner-text p{
+    font-size: 20px;
+    font-style: italic;
+}
+
+.banner-btn{
+    margin: 70px auto 0;
+}
+
+.banner-btn a{
+    width:150px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 10px;
+    padding: 12px 0;
+    color: #070707;
+    border: .5px solid #0a0a0a;
+    position: relative;
+    z-index: 1;
+    transition: color 0.5s;
+}
+
+.banner-btn a span{
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #2f71e3;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+.banner-btn a:hover span{
+    width: 100%;
+}
+
+.banner-btn a:hover {
+   color: #000000;
+} 
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 110px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: rgba(236, 232, 232, 0.2);
+    backdrop-filter: blur(17px);
+    --webkit-backdrop-filter: blur(17px);
+    border-right: 1px solid rgba(241, 229, 229, 0.7);
+    transition: width 0.3s ease;
+}
+
+.sidebar:hover {
+    width: 260px;
+}
+
+.sidebar .logo {
+    color: #000;
+    display: flex;
+    align-items: center;
+    padding: 25px 10px 15px;
+}
+
+.logo img {
+    width: 43px;
+    border-radius: 50%;
+}
+
+.logo h2 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-left: 15px;
+    display: none;
+}
+
+.sidebar:hover .logo h2 {
+    display: block; 
+}
+
+.sidebar .links {
+    list-style: none;
+    margin-top: 20px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    height: calc(100% - 140px);
+}
+
+.sidebar .links::-webkit-scrollbar {
+    display: none;
+}
+
+.links li {
+    display: flex;
+    border-radius: 4px;
+    align-items: center;
+}
+
+.links li:hover {
+    cursor: pointer;
+    background: #f1eaea;
+}
+
+.links h4 {
+    color: #222;
+    font-weight: 500;
+    display: none;
+    margin-bottom: 10px;
+}
+
+.sidebar:hover .links h4 {
+    display: block;
+}
+
+.links hr {
+    margin: 10px 8px;
+    border: 1px solid #efe8e8;
+}
+
+.sidebar:hover .links hr {
+    border-color: transparent;
+}
+
+.links li span {
+    padding: 12px 10px;
+}
+
+.links li a {
+    padding: 10px;
+    color: #171616;
+    display: none;
+    font-weight: 500;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.sidebar:hover .links li a {
+    display: block;
+}
+
+.links .logout-link {
+    margin-top: 20px;
+}
+
+.links .profile-link {
+    margin-top: 20px;
+}
+.social-icon a i{
+    color: #0832b1;
+    font-size: 40px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: .5s ease;
+    position: relative;
+    top: -440px;
+    left: 70%;
+    
+}
+
+.social-icon a:hover i{
+    transform: scale(1.5);
+    color:#6eacea;
+}
+
+.social-icon{
+    position:absolute;
+    top: 1050px;
+    left: 430px;    
+    border-width: 2px;    
+} 
+.typing-container {
+    color:rgb(241, 224, 224);
+    margin-top: 100px; /* Adjust margin as needed */
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid #000;
+    animation: typing1 4s steps(160);
+    position: absolute;
+    top: 480px;
+    left: 100px;  
+}
+
+/* Animation keyframes */
+@keyframes typing1 {
+    from { width: 0 }
+    to { width: 40% }
+}
+.wrapper {
+    height: 50vh;
+    /*This part is important for centering*/
+    display: grid;
+    place-items: center;
+  }
+  
+  .typing-demo {
+    width: 16ch;
+    animation: typing 3s steps(30), blink .9s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-family: monospace;
+    font-size: 2.5em;
+    color:#2c59de;
+    position: absolute;
+    top: 480px;
+    left: 600px;  
+  }
+  
+  @keyframes typing {
+    from {
+      width: 0
+    }
+  }
+      
+  @keyframes blink {
+    50% {
+      border-color: transparent
+    }
+  }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audiobook Player</title>
+    <link rel="stylesheet" href="player.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="player-header">
+            <img id="book-image" src="" alt="Audiobook Cover">
+            <h2 id="book-title">Audiobook Title</h2>
+        </div>
+
+        <!-- Audiobook Player -->
+        <div class="audio-player">
+            <audio id="audio" controls>
+                <source id="audio-source" src="" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+
+            <!-- Playback Controls -->
+            <div class="controls">
+                <button onclick="rewindAudio()">Rewind 10s</button>
+                <button onclick="forwardAudio()">Forward 10s</button>
+                <label for="speed">Speed:</label>
+                <select id="speed" onchange="changeSpeed()">
+                    <option value="1">1x</option>
+                    <option value="1.5">1.5x</option>
+                    <option value="2">2x</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <script src="player.js"></script>
+</body>
+</html>
