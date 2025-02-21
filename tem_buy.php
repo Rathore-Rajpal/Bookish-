@@ -230,23 +230,22 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
             border-radius: 5px;
             cursor: pointer;
         }
-
         .product .price {
-            font-weight: bold;
-            color: #e74c3c; /* Highlighted in red for price */
-            font-size: 1.2rem;
-        }
+        font-weight: bold;
+        color: #e74c3c; /* Highlighted in red for price */
+        font-size: 1.2rem;
+       }
 
-        .product .stock {
-            font-weight: bold;
-            color: #27ae60; /* Highlighted in green for stock */
-            font-size: 1.1rem;
+       .product .stock {
+        font-weight: bold;
+        color: #27ae60; /* Highlighted in green for stock */
+        font-size: 1.1rem;
         }
-
-        .con {
+        .con{
             font-weight: bold;
-            color: blue; /* Highlighted in blue for condition */
+            color: blue; /* Highlighted in green for stock */
             font-size: 1.1rem;
+
         }
 
         /* Footer */
@@ -300,79 +299,85 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 
         $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-        if (!$conn) {
-            die("Connection failed: " . mysqli_connect_error());
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
         }
 
-        // Fetch products from the database
-        $sql = "SELECT * FROM buy_items";
-        $result = mysqli_query($conn, $sql);
+        // Fetch products where quantity is greater than or equal to 1
+        $sql = "SELECT * FROM buy_items WHERE qty >= 1";
+        $result = $conn->query($sql);
 
-        if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo '<div class="product">';
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo "<div class='product' data-name='" . strtolower($row['item_name']) . "'>";
                 echo "<img src='uploads/" . $row['photo'] . "' alt='" . $row['item_name'] . "' loading='lazy'>";
-                echo '<h3>' . $row['item_name'] . '</h3>';
-                echo '<p class="price">Price: ₹' . $row['price'] . '</p>';
-                echo '<p class="stock">Stock: ' . $row['qty'] . ' available</p>';
-                echo '<p class="con">Condition: ' . $row['category'] . '</p>';
-                echo '<button onclick="addToCart(' . $row['id'] . ')">Add to Cart</button>';
-                echo '<button onclick="addToWishlist(' . $row['id'] . ', \'' . $_SESSION['username'] . '\')">Add to Wishlist</button>'; // Wishlist button
-                echo '</div>';
+                echo "<h3>" . $row['item_name'] . "</h3>";
+                echo "<p>" . $row['description'] . "</p>";
+                // Display category
+                echo "<p class='con'>Condition: " . $row['category'] . "</p>";
+                // Display price and stock
+                echo "<p class='price'>Price: ₹" . $row['price'] . "</p>";
+                echo "<p class='stock'>Available Stock: " . $row['qty'] . "</p>";
+                
+                echo "<form action='cart.php' method='post'>";
+                echo "<input type='hidden' name='item_id' value='" . $row['id'] . "'>";
+                echo "<input type='hidden' name='item_name' value='" . $row['item_name'] . "'>";
+                echo "<input type='hidden' name='price' value='" . $row['price'] . "'>";
+                echo "<button type='submit' name='add_to_cart' onclick='showModal()'>Add to Cart</button>";
+                echo "</form>";
+                echo "</div>";
             }
         } else {
-            echo "No products found.";
+            echo "No items available";
         }
 
-        mysqli_close($conn);
+        $conn->close();
         ?>
-    </div>
-
-    <!-- Modal for confirmation -->
-    <div class="modal" id="confirmationModal">
-        <p>Item has been added to your wishlist!</p>
-        <button onclick="closeModal()">Close</button>
     </div>
 </div>
 
-<!-- JavaScript -->
+<!-- Modal -->
+<div class="modal" id="modal">
+    <p>Book added to cart!</p>
+    <button onclick="closeModal()">Close</button>
+</div>
+
+<footer>
+    <p>&copy; 2024 Bookish Store. All rights reserved.</p>
+</footer>
+
 <script>
-    function addToWishlist(productId, username) {
-        // AJAX request to add item to wishlist
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'add_to_wishlist.php', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.onload = function () {
-            if (this.responseText === 'success') {
-                document.getElementById('confirmationModal').classList.add('active');
-            } else {
-                alert('Failed to add item to wishlist.');
-            }
-        };
-        xhr.send('product_id=' + productId + '&username=' + encodeURIComponent(username));
+    // Function to show modal
+    function showModal() {
+        var modal = document.getElementById('modal');
+        modal.classList.add('active');
+        setTimeout(function () {
+            modal.classList.remove('active');
+        }, 2000); // Hide after 2 seconds
     }
 
-    function closeModal() {
-        document.getElementById('confirmationModal').classList.remove('active');
-    }
-
+    // Search function
     function searchProducts() {
-        const input = document.getElementById('searchInput').value.toLowerCase();
-        const products = document.querySelectorAll('.product');
+        var input = document.getElementById('searchInput').value.toLowerCase();
+        var products = document.querySelectorAll('.product');
 
-        products.forEach(product => {
-            const productName = product.querySelector('h3').textContent.toLowerCase();
-            product.style.display = productName.includes(input) ? 'block' : 'none';
+        products.forEach(function (product) {
+            var productName = product.getAttribute('data-name');
+            if (productName.includes(input)) {
+                product.style.display = 'block';
+            } else {
+                product.style.display = 'none';
+            }
         });
     }
 
-    // Mobile Navigation
-    document.querySelector('.nav-toggle').onclick = function () {
-        document.querySelector('nav ul').classList.toggle('active');
-    };
+    // Mobile navigation toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('nav ul');
+
+    navToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+    });
 </script>
-<footer>
-    <p>© 2024 Bookish. All rights reserved.</p>
-</footer>
 </body>
 </html>

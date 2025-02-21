@@ -207,7 +207,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <!-- Sign Up section -->
         <div class="login-section">
             <p>New to Bookish? <a href="register_form.php">Sign up now</a></p>
-            <p>Go Back <a href="page.php">Home</a></p>
+            <p>Go Back <a href="index.php">Home</a></p>
         </div>
     </div>
 

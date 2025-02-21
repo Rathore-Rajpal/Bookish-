@@ -211,7 +211,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <!-- Sign Up section -->
         <div class="login-section">
-            <p>Go back <a href="page.php">Home</a></p>
+            <p>Go back <a href="index.php">Home</a></p>
         </div>
     </div>
 

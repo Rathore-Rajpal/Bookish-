@@ -252,7 +252,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <!-- Login link -->
         <div class="login-section">
             <p>Already registered? <a href="login_form.php">Login here</a></p><br>
-            <p>Go Back <a href="page.php">Home</a></p>
+            <p>Go Back <a href="index.php">Home</a></p>
         </div>
     </div>
 
