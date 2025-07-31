@@ -164,7 +164,8 @@ if (isset($_POST['place_order'])) {
     $payment_method = $_POST['payment_method'];
 
     // Connect to the database
-    $conn = new mysqli('localhost', 'root', '', 'sem4');
+    require_once 'db_connect.php';
+    // $conn is available from db_connect.php
 
     // Check connection
     if ($conn->connect_error) {

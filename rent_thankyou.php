@@ -180,7 +180,8 @@ session_start();
         <?php
         
         // Connect to the database
-        $conn = new mysqli('localhost', 'root', '', 'sem4');
+        require_once 'db_connect.php';
+        // $conn is available from db_connect.php
         
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);

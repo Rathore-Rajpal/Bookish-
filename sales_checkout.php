@@ -19,16 +19,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $feePerItem = ($sellRentOption == 'both') ? 20 : 10;
     $totalFee = $feePerItem * $quantity;
 
-    // Database connection details
-    $servername = "localhost";
-    $usernameDB = "root";  // Changed to avoid confusion with session variable
-    $password = "";
-    $dbname = "sem4";
-    $conn = new mysqli($servername, $usernameDB, $password, $dbname);
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    // Database connection
+    require_once 'db_connect.php';
+    // $conn is available from db_connect.php
 
     // Insert into the appropriate table based on the sell/rent option
     if ($sellRentOption == 'only_sell') {

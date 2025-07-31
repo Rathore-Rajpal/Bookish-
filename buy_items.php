@@ -2,15 +2,12 @@
 session_start();
 $_SESSION['admin'] = 'AdminUsername'; // Simulating admin session for demo purposes.
 
-$dsn = 'mysql:host=localhost;dbname=sem4';
-$username = 'root';
-$password = '';
 
-try {
-    $db = new PDO($dsn, $username, $password);
+$dsn = 'mysql:host=sql12.freesqldatabase.com;dbname=sql12792883';
+$username = 'sql12792883';
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Error: " . $e->getMessage());
+ require_once 'db_connect.php';
+ $db = $pdo;
 }
 
 // Handle delete request

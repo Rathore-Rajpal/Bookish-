@@ -2,8 +2,9 @@
 session_start();
 $_SESSION['admin'] = 'AdminUsername'; // Simulating admin session for demo purposes.
 
-$dsn = 'mysql:host=localhost;dbname=sem4';
-$username = 'root';
+$dsn = 'mysql:host=sql12.freesqldatabase.com;dbname=sql12792883';
+$username = 'sql12792883';
+$password = '1zqmsKmlsQ';
 $password = '';
 
 try {
