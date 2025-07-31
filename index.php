@@ -123,6 +123,14 @@
                 <p>Access your favorite books instantly on any device. Read anywhere, anytime with our digital collection.</p>
                 <a href="e-books.php" class="feature-link">View E-Books <i class="fas fa-arrow-right"></i></a>
             </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+                <div class="feature-icon">
+                    <i class="fas fa-magic"></i>
+                </div>
+                <h3>Custom Orders</h3>
+                <p>Can't find what you're looking for? Request a custom book order tailored to your specific needs or preferences.</p>
+                <a href="custom_order.php" class="feature-link">Custom Orders <i class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
     </section>
 

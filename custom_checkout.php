@@ -197,7 +197,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['name'])) {
         <h1>Bookish</h1>
     </div>
     <nav>
-        <a href="inde.php"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="index.php"><i class="fa-solid fa-house"></i> Home</a>
     </nav>
 </header>
 

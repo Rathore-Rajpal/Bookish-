@@ -182,7 +182,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <!-- Flexbox for the buttons -->
             <div class="btn-group">
-                <a href="inde.php" class="btn btn-home">Home</a>
+                <a href="index.php" class="btn btn-home">Home</a>
                 <button type="submit" class="btn btn-primary">Proceed to Checkout</button>
             </div>
         </form>

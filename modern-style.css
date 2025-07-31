@@ -387,20 +387,23 @@ body {
 
 /* Second row with 2 cards centered */
 .features-grid > *:nth-child(4),
-.features-grid > *:nth-child(5) {
+.features-grid > *:nth-child(5),
+.features-grid > *:nth-child(6) {
     grid-column: span 1;
 }
 
-/* Center the last two cards */
+/* Second row layout for 6 cards (3 in first row, 3 in second) */
 @media (min-width: 992px) {
     .features-grid > *:nth-child(4) {
         grid-column: 1 / span 1;
-        margin-left: auto;
     }
     
     .features-grid > *:nth-child(5) {
         grid-column: 2 / span 1;
-        margin-right: auto;
+    }
+    
+    .features-grid > *:nth-child(6) {
+        grid-column: 3 / span 1;
     }
 }
 

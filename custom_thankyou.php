@@ -169,7 +169,7 @@ if ($result && mysqli_num_rows($result) > 0) {
 
         <div class="print-btn">
             <button onclick="window.print()" class="btn btn-primary">Print Invoice</button>
-            <a href="inde.php" class="btn btn-secondary">Home</a>
+            <a href="index.php" class="btn btn-secondary">Home</a>
         </div>
     </div>
 
