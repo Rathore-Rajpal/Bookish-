@@ -47,145 +47,133 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://kit.fontawesome.com/d01fd9c369.js" crossorigin="anonymous"></script>
     <title>Bookish Signup</title>
     <link rel="icon" type="image/png" href="image/logo.png">
-
     <style>
-        /* Global Styles */
         body {
-            background: url(wall/hero-bg.jpg) no-repeat;
-            background-position: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%), url(wall/hero-bg.jpg) no-repeat center center fixed;
             background-size: cover;
             font-family: 'Roboto', sans-serif;
-            padding: 0;
             margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-
-        h1 {
-            font-family: 'Lobster', sans-serif;
-            color: #2C3E50;
-            margin-bottom: 30px;
-        }
-
-        .alert {
-            border-radius: 0.5rem;
-        }
-
-        /* Sign-up form */
-        .container {
-            max-width: 600px;
-            padding: 50px;
-            margin-top: 10px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 1s ease-out;
-        }
-
-        .form-group label {
-            font-weight: bold;
-            color: #2C3E50;
-        }
-
-        .form-control {
-            border-radius: 0.5rem;
-            border: 1px solid #BDC3C7;
-            padding: 12px;
-            font-size: 14px;
-            transition: 0.3s ease-in-out;
-        }
-
-        .form-control:focus {
-            border-color: #3498db;
-            box-shadow: 0 0 8px rgba(52, 152, 219, 0.2);
-        }
-
-        .btn-primary {
-            background: #3498db;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 0.5rem;
-            font-size: 16px;
+        .glass-card {
+            max-width: 420px;
             width: 100%;
-            cursor: pointer;
-            transition: background 0.3s;
-            margin-bottom: 10px;
+            margin: 40px auto 0 auto;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(33, 150, 243, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 38px 28px 28px 28px;
+            animation: cardFadeIn 1.2s cubic-bezier(.68,-0.55,.27,1.55);
         }
-
-        .btn-primary:hover {
-            background: #2980b9;
+        @keyframes cardFadeIn {
+            0% { opacity: 0; transform: translateY(40px) scale(0.95); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
         }
-
-        .btn-secondary {
-            background: #e74c3c;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 0.5rem;
-            font-size: 16px;
-            width: 100%;
-            cursor: pointer;
-            transition: background 0.3s;
-            margin-bottom: 20px;
-        }
-
-        .btn-secondary:hover {
-            background: #c0392b;
-        }
-
-        .form-group input {
-            border-radius: 10px;
-            background-color: #f9f9f9;
-        }
-
-        .container h1 {
+        .glass-card h1 {
+            font-family: 'Lobster', cursive;
+            color: #2C3E50;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+            font-size: 2.2rem;
         }
-
-        .alert {
-            margin-top: 20px;
+        .form-group {
+            position: relative;
+            margin-bottom: 26px;
         }
-
-        /* Input Focus Animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .form-group input {
+            width: 100%;
+            padding: 14px 12px 14px 12px;
+            border: none;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(33, 150, 243, 0.1);
         }
-        
-        /* Login Section */
+        .form-group input:focus {
+            background: #fff;
+            box-shadow: 0 0 0 2px #90CAF9, 0 2px 8px rgba(33, 150, 243, 0.2);
+        }
+        .form-group label {
+            position: absolute;
+            left: 16px;
+            top: 16px;
+            color: #64B5F6;
+            background: transparent;
+            pointer-events: none;
+            transition: 0.2s cubic-bezier(.68,-0.55,.27,1.55);
+            font-size: 1rem;
+        }
+        .form-group input:focus + label,
+        .form-group input:not(:placeholder-shown) + label {
+            top: -10px;
+            left: 8px;
+            font-size: 0.85rem;
+            color: #1976D2;
+            background: #fff;
+            padding: 0 4px;
+            border-radius: 6px;
+        }
+        .btn-primary, .btn-secondary {
+            width: 100%;
+            padding: 13px 0;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            background: linear-gradient(90deg, #2196F3 0%, #1976D2 100%);
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(33, 150, 243, 0.2);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover, .btn-secondary:hover {
+            background: linear-gradient(90deg, #1976D2 0%, #2196F3 100%);
+            box-shadow: 0 4px 16px rgba(33, 150, 243, 0.3);
+            transform: translateY(-1px);
+        }
+        .btn-secondary {
+            background: linear-gradient(90deg, #90CAF9 0%, #64B5F6 100%);
+            color: #fff;
+        }
+        .btn-secondary:hover {
+            background: linear-gradient(90deg, #64B5F6 0%, #90CAF9 100%);
+        }
         .login-section {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 18px;
         }
-
         .login-section a {
             color: #3498db;
             font-weight: bold;
+            text-decoration: none;
+            transition: color 0.2s;
         }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-
-            h1 {
-                font-size: 24px;
-            }
+        .login-section a:hover {
+            color: #185a9d;
         }
-
-        @media (max-width: 480px) {
-            .form-control {
-                font-size: 14px;
+        .alert {
+            border-radius: 0.5rem;
+            margin-bottom: 18px;
+        }
+        @media (max-width: 600px) {
+            .glass-card {
+                padding: 18px 4px 12px 4px;
             }
-
-            .btn-primary, .btn-secondary {
-                padding: 10px;
+            .glass-card h1 {
+                font-size: 1.4rem;
             }
         }
     </style>
@@ -201,7 +189,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </button>
     </div>';
     }
-
     if ($showError) {
         echo ' <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong>Error!</strong> ' . $showError . '
@@ -211,55 +198,71 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>';
     }
     ?>
-
-    <div class="container">
-        <h1 class="text-center"><i class="fa-solid fa-book"></i> Bookish</h1>
-        <form action="register_form.php" method="post">
+    <div class="glass-card">
+        <h1><i class="fa-solid fa-book"></i> Bookish</h1>
+        <form action="register_form.php" method="post" autocomplete="off">
             <div class="form-group">
+                <input type="text" maxlength="11" class="form-control" id="fname" name="fname" required placeholder=" " />
                 <label for="fname">First Name</label>
-                <input type="text" maxlength="11" class="form-control" id="fname" name="fname" required>
             </div>
-
             <div class="form-group">
+                <input type="text" maxlength="11" class="form-control" id="lname" name="lname" required placeholder=" " />
                 <label for="lname">Last Name</label>
-                <input type="text" maxlength="11" class="form-control" id="lname" name="lname" required>
             </div>
-
             <div class="form-group">
+                <input type="text" maxlength="30" class="form-control" id="username" name="username" required placeholder=" " />
                 <label for="username">Select Username</label>
-                <input type="text" maxlength="30" class="form-control" id="username" name="username" required>
             </div>
-
             <div class="form-group">
+                <input type="email" maxlength="30" class="form-control" id="email" name="email" required placeholder=" " />
                 <label for="email">E-mail</label>
-                <input type="email" maxlength="30" class="form-control" id="email" name="email" required>
             </div>
-
             <div class="form-group">
+                <input type="password" maxlength="23" class="form-control" id="password" name="password" required placeholder=" " />
                 <label for="password">Password</label>
-                <input type="password" maxlength="23" class="form-control" id="password" name="password" required>
             </div>
-
             <div class="form-group">
+                <input type="password" class="form-control" id="cpassword" name="cpassword" required placeholder=" " />
                 <label for="cpassword">Confirm Password</label>
-                <input type="password" class="form-control" id="cpassword" name="cpassword" required>
             </div>
-
             <button type="submit" class="btn btn-primary">Sign Up</button>
             <button type="reset" class="btn btn-secondary">Reset</button>
         </form>
-
-        <!-- Login link -->
         <div class="login-section">
             <p>Already registered? <a href="login_form.php">Login here</a></p><br>
             <p>Go Back <a href="index.php">Home</a></p>
         </div>
     </div>
-
-    <!-- Optional JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script>
+        // Ripple effect for buttons
+        document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                let ripple = document.createElement('span');
+                ripple.className = 'ripple';
+                this.appendChild(ripple);
+                let max = Math.max(this.offsetWidth, this.offsetHeight);
+                ripple.style.width = ripple.style.height = max + 'px';
+                ripple.style.left = e.offsetX - max / 2 + 'px';
+                ripple.style.top = e.offsetY - max / 2 + 'px';
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+    </script>
+    <style>
+        .btn-primary .ripple, .btn-secondary .ripple {
+            position: absolute;
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            background: rgba(255,255,255,0.7);
+            pointer-events: none;
+        }
+        @keyframes ripple {
+            to {
+                transform: scale(2.5);
+                opacity: 0;
+            }
+        }
+    </style>
 </body>
-
 </html>

@@ -65,7 +65,6 @@ $items = $db->query($query)->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="icon" type="image/png" href="image/logo.png">
     <script src="https://kit.fontawesome.com/d01fd9c369.js" crossorigin="anonymous"></script>
-    <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f9;
@@ -77,6 +76,7 @@ $items = $db->query($query)->fetchAll(PDO::FETCH_ASSOC);
             padding: 10px;
             display: flex;
             justify-content: space-between;
+<?php
             align-items: center;
             color: white;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
