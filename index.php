@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +44,9 @@ session_start();
       <hr>
       <?php
       // Check if user is logged in
-      session_start();
+      if (session_status() === PHP_SESSION_NONE) {
+          session_start();
+      }
       if (isset($_SESSION['user_name'])) {
         echo '<li class="logout-link"> 
                 <span class="material-symbols-outlined">Logout</span>
