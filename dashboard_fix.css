@@ -1,0 +1,37 @@
+/* Fallback CSS for Dashboard */
+.main-content {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.sidebar {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.hero-section,
+.features-grid,
+.recent-books,
+.activity-section {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.feature-card,
+.book-card,
+.activity-item {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Hide loader completely */
+.loader-wrapper {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    z-index: -999 !important;
+}

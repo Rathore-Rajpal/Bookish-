@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 session_start();
                 $_SESSION['loggedin'] = true;
                 $_SESSION['username'] = $username;
-                header("location: inde.php");
+                header("location: user_dashboard.php");
             } else {
                 $showError = "Invalid Credentials";
             }    

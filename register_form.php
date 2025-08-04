@@ -23,7 +23,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $sql = "INSERT INTO `users` (`fname`, `lname`, `username`, `email`, `password`, `dt`) VALUES ('$fname', '$lname', '$username', '$email', '$hash', current_timestamp());";
             $result = mysqli_query($conn, $sql);
             if ($result) {
-                $showAlert = true;
+                // Start the session and log the user in directly after registration
+                session_start();
+                $_SESSION['loggedin'] = true;
+                $_SESSION['username'] = $username;
+                // Redirect to the dashboard
+                header("location: user_dashboard.php");
+                exit;
             }
         } else {
             $showError = "Passwords do not match";
